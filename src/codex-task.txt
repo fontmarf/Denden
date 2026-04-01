@@ -1,0 +1,48 @@
+Create a responsive landing page for Workshop VCO.
+
+Use these files:
+- copy-spec.md = single source of truth for content and section order
+- design-system.md = visual and brand direction
+
+Implementation requirements:
+- Build the page in React + Tailwind
+- Create clean, reusable components
+- Use a premium, sober, conversion-oriented layout
+- Preserve the exact order of sections from copy-spec.md
+- Do not invent new sections
+- Do not rewrite the positioning into a hype or aggressive sales tone
+- Keep the design adult, clear and trustworthy
+- Prioritize legibility, spacing and visual hierarchy
+
+Required sections:
+1. Hero
+2. Pain
+3. What is the workshop
+4. Learn cards
+5. Live difference
+6. Authority
+7. Fit / Not fit
+8. Proof perception
+9. Offer
+10. Objections
+11. FAQ
+12. Final CTA
+13. Footer
+
+Component guidance:
+- Hero with strong headline, proof strip and CTA above the fold
+- Learn section as responsive cards
+- FAQ as clean accordion
+- Offer section as high-contrast conversion block
+- Final CTA as comparison between improvisation and method
+
+Technical output:
+- Build production-ready code
+- Use semantic HTML
+- Ensure responsive behavior for desktop and mobile
+- Keep class names and component structure organized
+- Make the page easy to edit later
+
+Output format:
+- Return the full page/component code
+- Briefly explain the file structure created
