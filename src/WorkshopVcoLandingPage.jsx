@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
+const withBase = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 const learnCards = [
   {
@@ -62,11 +64,11 @@ const proofQuotes = [
 ];
 
 const proofCharts = [
-  { src: "/graphics/grafico-performance-aluno-ronaldo.svg", alt: "Gráfico de performance do aluno Ronaldo" },
-  { src: "/graphics/grafico-performance-aluno-jocinei.svg", alt: "Gráfico de performance do aluno Jocinei" },
-  { src: "/graphics/grafico-performance-aluno-Kelsanny.svg", alt: "Gráfico de performance do aluno Kelsanny" },
-  { src: "/graphics/grafico-performance-aluno-sandro.svg", alt: "Gráfico de performance do aluno Sandro" },
-  { src: "/graphics/grafico-performance-prova-social-aluna.svg", alt: "Gráfico de prova social de aluna" },
+  { src: withBase("graphics/grafico-performance-aluno-ronaldo.svg"), alt: "Gráfico de performance do aluno Ronaldo" },
+  { src: withBase("graphics/grafico-performance-aluno-jocinei.svg"), alt: "Gráfico de performance do aluno Jocinei" },
+  { src: withBase("graphics/grafico-performance-aluno-Kelsanny.svg"), alt: "Gráfico de performance do aluno Kelsanny" },
+  { src: withBase("graphics/grafico-performance-aluno-sandro.svg"), alt: "Gráfico de performance do aluno Sandro" },
+  { src: withBase("graphics/grafico-performance-prova-social-aluna.svg"), alt: "Gráfico de prova social de aluna" },
 ];
 
 function SectionHeader({ eyebrow, title, centered = false }) {
@@ -116,7 +118,7 @@ export default function WorkshopVcoLandingPage() {
           </div>
 
           <div className="relative hidden overflow-hidden rounded-2xl border border-zinc-700/70 bg-zinc-900/60 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:block">
-            <img src="/images/denden-portrait-03.png" alt="Felipe Denden em ambiente profissional" className="h-full w-full object-cover" />
+            <img src={withBase("images/denden-portrait-03.png")} alt="Felipe Denden em ambiente profissional" className="h-full w-full object-cover" />
           </div>
         </div>
       </section>
@@ -177,7 +179,7 @@ export default function WorkshopVcoLandingPage() {
       </section>
 
       <section className="relative overflow-hidden border-y border-zinc-800/80">
-        <img src="/images/denden-boxing-landscape-02.png" alt="Leitura de mercado em ambiente profissional" className="absolute inset-0 h-full w-full object-cover opacity-10" />
+        <img src={withBase("images/denden-boxing-landscape-02.png")} alt="Leitura de mercado em ambiente profissional" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-20">
           <SectionHeader eyebrow="POR QUE AO VIVO" title="Muda o jogo" />
           <p className="mt-6 max-w-4xl text-zinc-300">
@@ -214,7 +216,7 @@ export default function WorkshopVcoLandingPage() {
             </p>
           </div>
           <div className="space-y-4">
-            <img src="/images/denden-portrait-02.png" alt="Retrato de Felipe Denden" className="h-72 w-full rounded-xl border border-zinc-800 object-cover" />
+            <img src={withBase("images/denden-portrait-02.png")} alt="Retrato de Felipe Denden" className="h-72 w-full rounded-xl border border-zinc-800 object-cover" />
           </div>
         </div>
       </section>
@@ -333,7 +335,7 @@ export default function WorkshopVcoLandingPage() {
       </section>
 
       <section className="relative overflow-hidden">
-        <img src="/images/denden-boxing-landscape-04.png" alt="Imagem decorativa de fechamento da página" className="absolute inset-0 h-full w-full object-cover opacity-10" />
+        <img src={withBase("images/denden-boxing-landscape-04.png")} alt="Imagem decorativa de fechamento da página" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-20">
           <SectionHeader eyebrow="A DECISÃO É SIMPLES" title="Continuar no improviso ou entrar com método" centered />
           <div className="mt-8 grid gap-6 md:grid-cols-2">
