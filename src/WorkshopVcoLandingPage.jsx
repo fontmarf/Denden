@@ -43,6 +43,13 @@ const workshopConcepts = [
   "controle de risco antes da entrada",
 ];
 
+const liveReasons = [
+  "Leitura em tempo real",
+  "Decisão com contexto",
+  "Adaptação sem atraso",
+  "Risco antes do clique",
+];
+
 const faqs = [
   {
     q: "Preciso ter experiência prévia?",
@@ -129,11 +136,17 @@ export default function WorkshopVcoLandingPage() {
         .warm-flicker {
           animation: warmFlicker 3.8s ease-in-out infinite;
         }
+        .premium-surface {
+          border: 1px solid rgba(255,255,255,0.15);
+          background: linear-gradient(160deg, rgba(39,39,42,0.8), rgba(9,9,11,0.92));
+          box-shadow: 0 24px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+          backdrop-filter: blur(12px);
+        }
       `}</style>
 
       <section className="relative overflow-hidden border-b border-zinc-800/80">
         <img
-          src={withBase("images/denden-boxing-landscape-01.png")}
+          src={withBase("images/denden-boxing-hero-bg.png")}
           alt="Background do hero"
           className="absolute inset-0 h-full w-full object-cover object-right opacity-60"
         />
@@ -143,7 +156,7 @@ export default function WorkshopVcoLandingPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="relative z-20">
-            <p className="mb-5 text-3xl font-semibold uppercase tracking-[0.14em] text-lime-300 [text-shadow:0_0_24px_rgba(163,230,53,0.45)] md:text-5xl">
+            <p className="mb-5 inline-block rounded-xl border border-lime-300/40 bg-zinc-900/45 px-4 py-2 text-3xl font-semibold uppercase tracking-[0.2em] text-lime-300 [text-shadow:0_0_24px_rgba(163,230,53,0.7)] md:text-6xl">
               WORKSHOP VCO
             </p>
             <h1 className="max-w-2xl text-4xl font-semibold leading-[0.98] text-white md:text-7xl">O mapa da consistência na prática</h1>
@@ -185,10 +198,10 @@ export default function WorkshopVcoLandingPage() {
           é método.
         </p>
         <ul className="mt-8 grid gap-3 text-zinc-200 md:grid-cols-2">
-          <li className="rounded-xl border border-zinc-800/70 bg-zinc-900/55 p-4 backdrop-blur">já operou mini índice, dólar, ações ou opções e sente que falta consistência</li>
-          <li className="rounded-xl border border-zinc-800/70 bg-zinc-900/55 p-4 backdrop-blur">já fez cursos, viu conteúdo, testou setups, mas continua sem leitura clara</li>
-          <li className="rounded-xl border border-zinc-800/70 bg-zinc-900/55 p-4 backdrop-blur">quer parar de depender de achismo e começar a operar com mais estrutura</li>
-          <li className="rounded-xl border border-zinc-800/70 bg-zinc-900/55 p-4 backdrop-blur">entendeu que sobreviver no mercado exige muito mais do que acertar entrada</li>
+              <li className="premium-surface rounded-xl p-4">já operou mini índice, dólar, ações ou opções e sente que falta consistência</li>
+              <li className="premium-surface rounded-xl p-4">já fez cursos, viu conteúdo, testou setups, mas continua sem leitura clara</li>
+              <li className="premium-surface rounded-xl p-4">quer parar de depender de achismo e começar a operar com mais estrutura</li>
+              <li className="premium-surface rounded-xl p-4">entendeu que sobreviver no mercado exige muito mais do que acertar entrada</li>
         </ul>
       </section>
 
@@ -204,7 +217,7 @@ export default function WorkshopVcoLandingPage() {
 
           <div className="mt-10 grid grid-cols-6 gap-4">
             {workshopConcepts.slice(0, 3).map((item) => (
-              <article key={item} className="col-span-6 rounded-2xl border border-zinc-700/70 bg-gradient-to-b from-zinc-800/55 to-zinc-900/70 p-5 backdrop-blur md:col-span-2">
+              <article key={item} className="premium-surface col-span-6 rounded-2xl p-5 md:col-span-2">
                 <div className="mb-3 h-1.5 w-12 rounded-full bg-emerald-300/70" />
                 <p className="text-zinc-100">{item}</p>
               </article>
@@ -213,7 +226,7 @@ export default function WorkshopVcoLandingPage() {
             {workshopConcepts.slice(3).map((item, idx) => (
               <article
                 key={item}
-                className={`col-span-6 rounded-2xl border border-zinc-700/70 bg-gradient-to-b from-zinc-800/55 to-zinc-900/70 p-5 backdrop-blur sm:col-span-3 md:col-span-2 ${
+                className={`premium-surface col-span-6 rounded-2xl p-5 sm:col-span-3 md:col-span-2 ${
                   idx === 0 ? "md:col-start-2" : "md:col-start-4"
                 }`}
               >
@@ -235,7 +248,7 @@ export default function WorkshopVcoLandingPage() {
           {learnCards.map((card, idx) => (
             <article
               key={card.title}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-700/70 bg-gradient-to-b from-zinc-800/45 to-zinc-900/75 p-6 backdrop-blur"
+              className="premium-surface group relative overflow-hidden rounded-2xl p-6"
             >
               <div className="absolute -top-12 right-0 h-24 w-24 rounded-full bg-emerald-400/10 blur-2xl" />
               <p className="mb-3 text-xs uppercase tracking-[0.16em] text-zinc-500">Pilar {String(idx + 1).padStart(2, "0")}</p>
@@ -255,16 +268,10 @@ export default function WorkshopVcoLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/86 via-zinc-950/84 to-zinc-950/76" />
         <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-20">
           <SectionHeader eyebrow="POR QUE AO VIVO" title="Muda o jogo" />
-          <p className="mt-6 max-w-4xl text-zinc-300">
-            Ao vivo, você acompanha o que realmente importa: o raciocínio. Você vê como a leitura é construída, como o
-            cenário muda, como o risco é avaliado e como a decisão precisa se adaptar quando o mercado não entrega o
-            que parecia prometer segundos antes.
-          </p>
           <ul className="mt-8 grid gap-3 text-zinc-200 md:grid-cols-2 xl:grid-cols-4">
-            <li className="rounded-2xl border border-emerald-300/25 bg-gradient-to-b from-zinc-800/75 to-zinc-900/82 p-4 backdrop-blur">leitura em tempo real</li>
-            <li className="rounded-2xl border border-emerald-300/25 bg-gradient-to-b from-zinc-800/75 to-zinc-900/82 p-4 backdrop-blur">análise adaptativa</li>
-            <li className="rounded-2xl border border-emerald-300/25 bg-gradient-to-b from-zinc-800/75 to-zinc-900/82 p-4 backdrop-blur">risco + contexto</li>
-            <li className="rounded-2xl border border-emerald-300/25 bg-gradient-to-b from-zinc-800/75 to-zinc-900/82 p-4 backdrop-blur">pensamento pré-clique</li>
+            {liveReasons.map((item) => (
+              <li key={item} className="premium-surface rounded-2xl p-4 text-base font-medium">{item}</li>
+            ))}
           </ul>
         </div>
       </section>
@@ -279,15 +286,15 @@ export default function WorkshopVcoLandingPage() {
               fáceis. Gira em torno de leitura, processo, gestão de risco e prática real.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-xl border border-zinc-700/70 bg-zinc-900/70 p-4 backdrop-blur">
+              <div className="premium-surface rounded-xl p-4">
                 <p className="text-2xl font-semibold text-emerald-300">20+</p>
                 <p className="mt-1 text-sm text-zinc-300">anos de mercado</p>
               </div>
-              <div className="rounded-xl border border-zinc-700/70 bg-zinc-900/70 p-4 backdrop-blur">
+              <div className="premium-surface rounded-xl p-4">
                 <p className="text-2xl font-semibold text-emerald-300">180+</p>
                 <p className="mt-1 text-sm text-zinc-300">DARFs positivas consecutivas</p>
               </div>
-              <div className="rounded-xl border border-zinc-700/70 bg-zinc-900/70 p-4 backdrop-blur">
+              <div className="premium-surface rounded-xl p-4">
                 <p className="text-2xl font-semibold text-emerald-300">5 mil+</p>
                 <p className="mt-1 text-sm text-zinc-300">alunos impactados</p>
               </div>
@@ -301,7 +308,7 @@ export default function WorkshopVcoLandingPage() {
           <div className="relative h-[470px]">
             <div className="absolute left-0 top-10 h-64 w-64 rounded-full bg-emerald-400/15 blur-3xl" />
             <img
-              src={withBase("images/denden-portrait-02.png")}
+              src={withBase("images/denden-portrait-02-pointing-up-sem-background.png")}
               alt="Retrato de Felipe Denden"
               className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom"
             />
@@ -311,22 +318,22 @@ export default function WorkshopVcoLandingPage() {
 
       <section className="border-y border-zinc-800/80 bg-zinc-900/35">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-2 md:py-20">
-          <article className="rounded-2xl border border-emerald-300/30 bg-gradient-to-b from-emerald-500/14 via-zinc-900/80 to-zinc-900/92 p-7 shadow-[0_20px_48px_rgba(16,185,129,0.15)] backdrop-blur">
+          <article className="rounded-2xl border border-emerald-300/35 bg-gradient-to-b from-emerald-400/18 via-zinc-900/84 to-zinc-900/95 p-7 shadow-[0_20px_48px_rgba(16,185,129,0.2)] backdrop-blur">
             <h3 className="text-xl font-semibold text-white">Para quem é</h3>
             <ul className="mt-4 space-y-3 text-zinc-300">
-              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem já teve contato com o mercado e quer finalmente entender melhor o que está fazendo</span></li>
-              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem já se frustrou com cursos superficiais, promessas irreais e abordagens que não se sustentam na prática</span></li>
-              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem valoriza clareza, estrutura, processo e leitura</span></li>
-              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem deseja evoluir com mais seriedade</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_14px_rgba(16,185,129,0.85)]">✅</span><span>já opera e quer método claro</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_14px_rgba(16,185,129,0.85)]">✅</span><span>cansou de setup sem contexto</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_14px_rgba(16,185,129,0.85)]">✅</span><span>busca leitura + risco + processo</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_14px_rgba(16,185,129,0.85)]">✅</span><span>quer consistência com seriedade</span></li>
             </ul>
           </article>
-          <article className="rounded-2xl border border-rose-400/28 bg-gradient-to-b from-rose-500/12 via-zinc-900/82 to-zinc-900/92 p-7 shadow-[0_20px_48px_rgba(244,63,94,0.13)] backdrop-blur">
+          <article className="rounded-2xl border border-rose-400/35 bg-gradient-to-b from-rose-500/16 via-zinc-900/84 to-zinc-900/95 p-7 shadow-[0_20px_48px_rgba(244,63,94,0.2)] backdrop-blur">
             <h3 className="text-xl font-semibold text-white">Para quem não é</h3>
             <ul className="mt-4 space-y-3 text-zinc-300">
-              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem procura atalho</span></li>
-              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem quer enriquecimento rápido</span></li>
-              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem espera sinal pronto sem entender racional</span></li>
-              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem não quer estudar, observar e amadurecer a própria leitura</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_14px_rgba(244,63,94,0.85)]">✖</span><span>quer atalho imediato</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_14px_rgba(244,63,94,0.85)]">✖</span><span>espera dinheiro rápido</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_14px_rgba(244,63,94,0.85)]">✖</span><span>quer sinal pronto sem lógica</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_14px_rgba(244,63,94,0.85)]">✖</span><span>não quer estudar o processo</span></li>
             </ul>
           </article>
         </div>
@@ -341,21 +348,21 @@ export default function WorkshopVcoLandingPage() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="space-y-4">
-            {proofQuotes.map((quote, i) => (
-              <article key={quote} className="rounded-2xl border border-zinc-700/70 bg-gradient-to-b from-zinc-800/65 to-zinc-900/82 p-6 backdrop-blur">
-                <p className="text-2xl leading-relaxed text-zinc-100 md:text-[1.7rem]">“{quote}”</p>
+            {proofQuotes.map((quote) => (
+              <article key={quote} className="premium-surface rounded-2xl p-6">
+                <p className="text-xl leading-relaxed text-zinc-100 md:text-2xl">“{quote}”</p>
               </article>
             ))}
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2">
             {proofCharts.map((chart) => (
-              <div key={chart.src} className="relative">
+              <div key={chart.src} className="premium-surface relative rounded-2xl p-3">
                 <div className="mb-3 px-2">
                   <p className="text-sm font-medium text-zinc-100">Aluno {chart.name}</p>
                   <p className="text-xs text-zinc-400">{chart.context}</p>
                 </div>
-                <img src={chart.src} alt={chart.alt} className="h-72 w-full rounded-xl object-contain bg-zinc-950/20 p-2 drop-shadow-[0_16px_24px_rgba(0,0,0,0.45)]" />
+                <img src={chart.src} alt={chart.alt} className="h-80 w-full rounded-xl object-contain bg-zinc-950/25 p-2 drop-shadow-[0_20px_32px_rgba(0,0,0,0.5)]" />
               </div>
             ))}
           </div>
@@ -374,24 +381,25 @@ export default function WorkshopVcoLandingPage() {
           </p>
 
           <div className="relative mx-auto mt-8 max-w-4xl">
-            <div className="rounded-2xl border border-emerald-300/24 bg-gradient-to-r from-zinc-900/84 to-zinc-800/52 p-6 text-left text-zinc-200 backdrop-blur">
+            <div className="premium-surface rounded-2xl p-6 text-left text-zinc-200">
               <ul className="space-y-3">
-                <li>• acesso ao workshop ao vivo</li>
-                <li>• acesso à gravação</li>
-                <li>• sessão de dúvidas</li>
-                <li>• garantia de 7 dias</li>
+                <li>• acesso ao workshop ao vivo + gravação</li>
+                <li>• sessão final de perguntas e respostas</li>
+                <li>• mapa operacional para estudo pós-evento</li>
+                <li>• garantia incondicional de 7 dias</li>
               </ul>
             </div>
 
-            <div className="mt-8 rounded-3xl border border-emerald-300/35 bg-zinc-950/92 p-7 shadow-[0_24px_56px_rgba(0,0,0,0.58)]">
-              <p className="text-5xl font-semibold tracking-tight text-yellow-300 [text-shadow:0_0_22px_rgba(250,204,21,0.45)] md:text-6xl">12x de R$ 4,90</p>
+            <div className="mt-8 rounded-3xl border border-emerald-300/40 bg-zinc-950/94 p-7 shadow-[0_24px_56px_rgba(0,0,0,0.58)]">
+              <p className="text-sm uppercase tracking-[0.16em] text-emerald-300">Oferta de lançamento</p>
+              <p className="text-5xl font-semibold tracking-tight text-yellow-300 [text-shadow:0_0_24px_rgba(250,204,21,0.7)] md:text-6xl">12x de R$ 4,90</p>
               <p className="mt-2 text-lg text-zinc-300">ou R$ 49,00 à vista</p>
             </div>
 
             <img
               src={pieProof.src}
               alt={pieProof.alt}
-              className="pointer-events-none absolute -right-16 top-12 hidden h-72 w-72 object-contain opacity-85 drop-shadow-[0_18px_36px_rgba(0,0,0,0.45)] md:block -z-0"
+              className="pointer-events-none absolute -right-24 top-0 hidden h-[26rem] w-[26rem] object-contain opacity-90 drop-shadow-[0_18px_36px_rgba(0,0,0,0.45)] md:block -z-0"
             />
           </div>
 
@@ -408,15 +416,16 @@ export default function WorkshopVcoLandingPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-16 text-center md:py-20">
         <SectionHeader eyebrow="AINDA EM DÚVIDA?" title="Será que isso serve para mim?" centered />
-        <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-zinc-200">
-          Se a dúvida é essa, a resposta mais honesta é: serve principalmente para quem já percebeu que continuar
-          <span className="font-semibold text-emerald-300"> fazendo do mesmo jeito não vai levar a um resultado diferente.</span>
-          {" "}Não importa se houve experiência com mini índice, dólar, ações ou opções. Não importa se já houve curso anterior. Não importa se existiu frustração.
-          <span className="font-semibold text-emerald-300"> O que importa é estar disposto a substituir ruído por clareza e improviso por método.</span>
-        </p>
+        <div className="mx-auto mt-6 grid max-w-4xl gap-4 text-left md:grid-cols-2">
+          <p className="premium-surface rounded-2xl p-5 text-base leading-relaxed text-zinc-200">
+            Se você já percebeu que repetir o mesmo operacional não muda resultado, esse workshop foi feito para você.
+          </p>
+          <p className="premium-surface rounded-2xl p-5 text-base leading-relaxed text-zinc-200">
+            Você não precisa “acertar tudo”. Precisa de leitura mais limpa, processo e decisão com contexto.
+          </p>
+        </div>
         <p className="mx-auto mt-5 max-w-3xl rounded-2xl border border-zinc-700/70 bg-zinc-900/65 p-5 text-sm text-zinc-300 backdrop-blur">
-          O workshop não promete transformar ninguém da noite para o dia. Mas pode ser o ponto de virada para quem
-          precisava, antes de tudo, aprender a olhar o mercado da forma certa.
+          Não é promessa mágica. É direção prática para parar o improviso e começar a operar com método.
         </p>
       </section>
 
@@ -427,16 +436,16 @@ export default function WorkshopVcoLandingPage() {
             {faqs.map((faq, index) => {
               const open = openFaq === index;
               return (
-                <article key={faq.q} className="overflow-hidden rounded-2xl border border-emerald-300/22 bg-gradient-to-b from-zinc-800/62 to-zinc-900/88 shadow-[0_14px_28px_rgba(0,0,0,0.35)] backdrop-blur">
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-emerald-300/26 bg-gradient-to-b from-zinc-800/70 to-zinc-950/92 shadow-[0_18px_34px_rgba(0,0,0,0.45)] backdrop-blur">
                   <button
-                    className="flex w-full items-center justify-between px-5 py-4 text-left"
+                    className="flex w-full items-center justify-between px-5 py-4 text-left transition hover:bg-zinc-800/55"
                     onClick={() => setOpenFaq(open ? -1 : index)}
                     type="button"
                   >
                     <span className="font-medium text-white">{faq.q}</span>
-                    <span className="text-zinc-400">{open ? "−" : "+"}</span>
+                    <span className="rounded-full border border-emerald-300/35 px-2.5 py-0.5 text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.5)]">{open ? "−" : "+"}</span>
                   </button>
-                  {open && <p className="border-t border-zinc-700/70 px-5 py-4 text-zinc-300">{faq.a}</p>}
+                  {open && <p className="border-t border-zinc-700/70 bg-zinc-900/75 px-5 py-4 text-zinc-300">{faq.a}</p>}
                 </article>
               );
             })}
@@ -449,7 +458,7 @@ export default function WorkshopVcoLandingPage() {
         <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
           <SectionHeader eyebrow="A DECISÃO É SIMPLES" title="Continuar no improviso ou entrar com método" centered />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <article className="rounded-2xl border border-rose-400/28 bg-gradient-to-b from-rose-500/11 to-zinc-900/90 p-7 backdrop-blur">
+            <article className="rounded-2xl border border-rose-500/45 bg-gradient-to-b from-rose-600/26 via-rose-900/16 to-zinc-900/92 p-7 backdrop-blur">
               <h3 className="text-xl font-semibold text-white">Continuar como está</h3>
               <ul className="mt-4 space-y-3 text-zinc-300">
                 <li>operar por sensação</li>
@@ -459,7 +468,7 @@ export default function WorkshopVcoLandingPage() {
                 <li>passar mais meses tentando juntar peças soltas</li>
               </ul>
             </article>
-            <article className="rounded-2xl border border-emerald-400/40 bg-gradient-to-b from-emerald-500/14 to-zinc-900/90 p-7 shadow-[0_20px_44px_rgba(0,0,0,0.5)]">
+            <article className="rounded-2xl border border-emerald-400/45 bg-gradient-to-b from-emerald-500/24 via-emerald-900/12 to-zinc-900/90 p-7 shadow-[0_20px_44px_rgba(0,0,0,0.5)]">
               <h3 className="text-xl font-semibold text-white">Entrar no Workshop VCO</h3>
               <ul className="mt-4 space-y-3 text-zinc-200">
                 <li>aprender a organizar a leitura</li>
