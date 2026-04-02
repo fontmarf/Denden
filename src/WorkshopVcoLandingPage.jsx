@@ -314,25 +314,26 @@ export default function WorkshopVcoLandingPage() {
           <article className="rounded-2xl border border-emerald-300/30 bg-gradient-to-b from-emerald-500/14 via-zinc-900/80 to-zinc-900/92 p-7 shadow-[0_20px_48px_rgba(16,185,129,0.15)] backdrop-blur">
             <h3 className="text-xl font-semibold text-white">Para quem é</h3>
             <ul className="mt-4 space-y-3 text-zinc-300">
-              <li>para quem já teve contato com o mercado e quer finalmente entender melhor o que está fazendo</li>
-              <li>para quem já se frustrou com cursos superficiais, promessas irreais e abordagens que não se sustentam na prática</li>
-              <li>para quem valoriza clareza, estrutura, processo e leitura</li>
-              <li>para quem deseja evoluir com mais seriedade</li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem já teve contato com o mercado e quer finalmente entender melhor o que está fazendo</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem já se frustrou com cursos superficiais, promessas irreais e abordagens que não se sustentam na prática</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem valoriza clareza, estrutura, processo e leitura</span></li>
+              <li className="flex gap-3"><span className="font-bold text-emerald-300 [text-shadow:0_0_12px_rgba(16,185,129,0.65)]">✓</span><span>para quem deseja evoluir com mais seriedade</span></li>
             </ul>
           </article>
           <article className="rounded-2xl border border-rose-400/28 bg-gradient-to-b from-rose-500/12 via-zinc-900/82 to-zinc-900/92 p-7 shadow-[0_20px_48px_rgba(244,63,94,0.13)] backdrop-blur">
             <h3 className="text-xl font-semibold text-white">Para quem não é</h3>
             <ul className="mt-4 space-y-3 text-zinc-300">
-              <li>não é para quem procura atalho</li>
-              <li>não é para quem quer enriquecimento rápido</li>
-              <li>não é para quem espera sinal pronto sem entender racional</li>
-              <li>não é para quem não quer estudar, observar e amadurecer a própria leitura</li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem procura atalho</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem quer enriquecimento rápido</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem espera sinal pronto sem entender racional</span></li>
+              <li className="flex gap-3"><span className="font-bold text-rose-300 [text-shadow:0_0_12px_rgba(244,63,94,0.65)]">✕</span><span>não é para quem não quer estudar, observar e amadurecer a própria leitura</span></li>
             </ul>
           </article>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(30,58,138,0.28),transparent_55%)]">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <SectionHeader eyebrow="O QUE O MERCADO ENSINA TARDE DEMAIS" title="Consistência não vem de pressa" />
         <p className="mt-6 max-w-3xl text-zinc-300">
           O mercado não recompensa pressa. O mercado recompensa leitura, controle e consistência.
@@ -347,17 +348,18 @@ export default function WorkshopVcoLandingPage() {
             ))}
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-2">
             {proofCharts.map((chart) => (
-              <article key={chart.src} className="overflow-hidden rounded-2xl border border-emerald-300/24 bg-gradient-to-b from-zinc-800/75 to-zinc-900/90 shadow-[0_18px_36px_rgba(0,0,0,0.35)] backdrop-blur">
-                <div className="border-b border-zinc-700/60 bg-zinc-900/70 px-5 py-4">
+              <div key={chart.src} className="relative">
+                <div className="mb-3 px-2">
                   <p className="text-sm font-medium text-zinc-100">Aluno {chart.name}</p>
                   <p className="text-xs text-zinc-400">{chart.context}</p>
                 </div>
-                <img src={chart.src} alt={chart.alt} className="h-64 w-full object-contain bg-zinc-950/60 p-4" />
-              </article>
+                <img src={chart.src} alt={chart.alt} className="h-72 w-full rounded-xl object-contain bg-zinc-950/20 p-2 drop-shadow-[0_16px_24px_rgba(0,0,0,0.45)]" />
+              </div>
             ))}
           </div>
+        </div>
         </div>
       </section>
 
@@ -372,22 +374,24 @@ export default function WorkshopVcoLandingPage() {
           </p>
 
           <div className="relative mx-auto mt-8 max-w-4xl">
-            <ul className="space-y-3 text-left text-zinc-200">
-              <li className="rounded-2xl border border-emerald-300/24 bg-gradient-to-r from-zinc-900/84 to-zinc-800/52 p-4 backdrop-blur">acesso ao workshop ao vivo</li>
-              <li className="rounded-2xl border border-emerald-300/24 bg-gradient-to-r from-zinc-900/84 to-zinc-800/52 p-4 backdrop-blur">acesso à gravação</li>
-              <li className="rounded-2xl border border-emerald-300/24 bg-gradient-to-r from-zinc-900/84 to-zinc-800/52 p-4 backdrop-blur">sessão de dúvidas</li>
-              <li className="rounded-2xl border border-emerald-300/24 bg-gradient-to-r from-zinc-900/84 to-zinc-800/52 p-4 backdrop-blur">garantia de 7 dias</li>
-            </ul>
+            <div className="rounded-2xl border border-emerald-300/24 bg-gradient-to-r from-zinc-900/84 to-zinc-800/52 p-6 text-left text-zinc-200 backdrop-blur">
+              <ul className="space-y-3">
+                <li>• acesso ao workshop ao vivo</li>
+                <li>• acesso à gravação</li>
+                <li>• sessão de dúvidas</li>
+                <li>• garantia de 7 dias</li>
+              </ul>
+            </div>
 
             <div className="mt-8 rounded-3xl border border-emerald-300/35 bg-zinc-950/92 p-7 shadow-[0_24px_56px_rgba(0,0,0,0.58)]">
-              <p className="text-5xl font-semibold tracking-tight text-emerald-300 md:text-6xl">12x de R$ 4,90</p>
+              <p className="text-5xl font-semibold tracking-tight text-yellow-300 [text-shadow:0_0_22px_rgba(250,204,21,0.45)] md:text-6xl">12x de R$ 4,90</p>
               <p className="mt-2 text-lg text-zinc-300">ou R$ 49,00 à vista</p>
             </div>
 
             <img
               src={pieProof.src}
               alt={pieProof.alt}
-              className="pointer-events-none absolute -right-8 -top-4 hidden h-52 w-52 rounded-xl border border-zinc-700 bg-zinc-900/80 p-3 object-contain shadow-[0_18px_36px_rgba(0,0,0,0.45)] md:block"
+              className="pointer-events-none absolute -right-16 top-12 hidden h-72 w-72 object-contain opacity-85 drop-shadow-[0_18px_36px_rgba(0,0,0,0.45)] md:block -z-0"
             />
           </div>
 
